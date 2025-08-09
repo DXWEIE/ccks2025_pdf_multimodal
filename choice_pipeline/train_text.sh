@@ -1,0 +1,32 @@
+source activate swift
+
+CUDA_VISIBLE_DEVICES=0,1,2,3 swift sft \
+--model /data/coding/llm_model/Qwen/Qwen3-8B \
+--dataset /data/coding/train_dataset_for_text.jsonl \
+--train_type lora \
+--device_map auto \
+--per_device_train_batch_size 2 \
+--per_device_eval_batch_size 1 \
+--split_dataset_ratio 0.1 \
+--output_dir /data/coding/lora_qwen3_8b/ \
+--num_train_epochs 5 \
+--lorap_lr_ratio 10 \
+--save_steps 50 \
+--eval_steps 50 \
+--save_total_limit 2 \
+--logging_steps 10 \
+--seed 42 \
+--learning_rate 1e-4 \
+--init_weights true \
+--lora_rank 8 \
+--lora_alpha 32 \
+--adam_beta1 0.9 \
+--adam_beta2 0.95 \
+--adam_epsilon 1e-08 \
+--weight_decay 0.1 \
+--gradient_accumulation_steps 8 \
+--max_grad_norm 1 \
+--lr_scheduler_type cosine \
+--warmup_ratio 0.05 \
+--warmup_steps 0 \
+--gradient_checkpointing false
