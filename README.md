@@ -17,3 +17,4 @@ My implementation in TianChi CCKS 2025 pdf QA multimodal competition：https://t
 
 ------
 Full explanation can refer to Zhihu:
+https://zhuanlan.zhihu.com/p/1937478905532506972
